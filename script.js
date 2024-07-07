@@ -1,5 +1,23 @@
 const searchBtn = document.getElementById('search_btn');
 const recepicontainer = document.querySelector('.go');
+const loginForm = document.getElementById('loginForm');
+const wrongPasswordDiv = document.getElementById('wrongPassword');
+
+loginForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const validUsername = 'Blesinto';
+  const validPassword = '2001';
+
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  if (username === validUsername && password === validPassword) {
+    window.location.href = 'index.html';
+  } else {
+    wrongPasswordDiv.classList.remove('opacity-0', 'translate-x-full');
+    wrongPasswordDiv.classList.add('slide-in');
+  }
+});
 
 const getMeal = () => {
   const searchBox = document.querySelector('.search').value.trim();
@@ -11,10 +29,19 @@ const getMeal = () => {
       if (data.meals) {
         data.meals.forEach(meal => {
           const receipDiv = document.createElement('div');
-          receipDiv.classList.add('flex-col', 'items-center', 'justify-center', 'border', 'border-[#e6e3e3]', 'rounded-2xl');
+          receipDiv.classList.add(
+            'flex-col',
+            'items-center',
+            'justify-center',
+            'border',
+            'border-[#e6e3e3]',
+            'rounded-2xl'
+          );
           receipDiv.innerHTML = `
             <div class="w-fit">
-              <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="w-[15rem] rounded-full" />
+              <img src="${meal.strMealThumb}" alt="${
+            meal.strMeal
+          }" class="w-[15rem] rounded-full" />
             </div>
             <div class="px-6">
               <h1 class="font-bold mb-1">${meal.strMeal}</h1>
@@ -30,7 +57,8 @@ const getMeal = () => {
           recepicontainer.appendChild(receipDiv);
         });
       } else {
-        recepicontainer.innerHTML = '<p>Meal not found.</p>';
+        recepicontainer.innerHTML =
+          '<p class ="flex items-center justify-center" >Meal not found.</p>';
       }
     })
     .catch(error => console.error('Error fetching the meal:', error));

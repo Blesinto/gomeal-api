@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>register</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- fontawesome  -->
+    <script
+      src="https://kit.fontawesome.com/7ae2f53444.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="flex items-center  justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
+      <h2 class="text-2xl font-bold mb-6 text-center text-gray-700">Login</h2>
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label for="username" class="block text-sm font-medium text-gray-600"
+            >Username</label
+          >
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          />
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-600"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-black focus:border-blue-500 sm:text-sm"
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2"
+        >
+          Login
+        </button>
+      </form>
+      <p class="mt-4 text-center text-sm text-gray-600">
+        Don't have an account?
+        <a href="#" class="text-blue-500 hover:underline">Sign up</a>
+      </p>
+
+      <!-- wrong password -->
+      <div
+        id="wrongPassword"
+        class="flex items-center justify-center absolute top-9  bg-cyan-700 p-2 w-fit opacity-0 transform translate-x-full"
+      >
+        <p class="relative right-0 text-white">Wrong password</p>
+      </div>
+    </div>
+
+    <!-- js -->
+    <script src="./script.js"></script>
+  </body>
+</html>

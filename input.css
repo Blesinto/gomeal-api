@@ -5,10 +5,23 @@
 @tailwind utilities;
 
 
-  body {
-    background: #e6e3e3;
+
+body {
+  background: #e6e3e3;
+}
+li {
+  cursor: pointer;
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
   }
-  li {
-    cursor: pointer;
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
+}
+.slide-in {
+  animation: slideIn 0.5s forwards;
+}
